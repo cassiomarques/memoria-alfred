@@ -1,7 +1,7 @@
 #!/bin/bash
 # Creates a new Memoria todo.
 # Called by Alfred with {query} as the full todo input.
-# Parses --due and --tags flags from the input.
+# Supports both TUI syntax (@due(), #tag) and CLI flags (--due, --tags).
 
 MEMORIA=$(which memoria 2>/dev/null || echo "$HOME/go/bin/memoria")
 
@@ -20,7 +20,7 @@ fi
 # Parse flags from input
 TITLE_PARTS=()
 DUE=""
-TAGS=""
+TAGS=()
 FOLDER=""
 
 # Split input into words
@@ -28,12 +28,12 @@ read -ra WORDS <<< "$INPUT"
 
 i=0
 while [ $i -lt ${#WORDS[@]} ]; do
-    case "${WORDS[$i]}" in
+    word="${WORDS[$i]}"
+    case "$word" in
         --due)
             i=$((i + 1))
-            # Collect due value (may be multi-word like "2 weeks")
             DUE="${WORDS[$i]}"
-            # Check if next word is a unit (days/weeks/months)
+            # Check if next word is a time unit
             if [ $((i + 1)) -lt ${#WORDS[@]} ]; then
                 next="${WORDS[$((i + 1))]}"
                 case "$next" in
@@ -44,16 +44,44 @@ while [ $i -lt ${#WORDS[@]} ]; do
                 esac
             fi
             ;;
+        @due\(*)
+            # Handle @due(...) — collect tokens until closing )
+            due_content="${word#@due(}"
+            if [[ "$due_content" == *")" ]]; then
+                # Single token: @due(2026-05-01)
+                DUE="${due_content%)}"
+            else
+                # Multi-token: @due(2 weeks)
+                DUE="$due_content"
+                i=$((i + 1))
+                while [ $i -lt ${#WORDS[@]} ]; do
+                    if [[ "${WORDS[$i]}" == *")" ]]; then
+                        DUE="$DUE ${WORDS[$i]%)}";
+                        break
+                    fi
+                    DUE="$DUE ${WORDS[$i]}"
+                    i=$((i + 1))
+                done
+            fi
+            ;;
         --tags)
             i=$((i + 1))
-            TAGS="${WORDS[$i]}"
+            IFS=',' read -ra TAG_LIST <<< "${WORDS[$i]}"
+            TAGS+=("${TAG_LIST[@]}")
+            ;;
+        \#*)
+            # Handle #tag syntax
+            tag="${word#\#}"
+            if [ -n "$tag" ]; then
+                TAGS+=("$tag")
+            fi
             ;;
         --folder)
             i=$((i + 1))
             FOLDER="${WORDS[$i]}"
             ;;
         *)
-            TITLE_PARTS+=("${WORDS[$i]}")
+            TITLE_PARTS+=("$word")
             ;;
     esac
     i=$((i + 1))
@@ -72,8 +100,9 @@ CMD=("$MEMORIA" todo "$TITLE")
 if [ -n "$DUE" ]; then
     CMD+=(--due "$DUE")
 fi
-if [ -n "$TAGS" ]; then
-    CMD+=(--tags "$TAGS")
+if [ ${#TAGS[@]} -gt 0 ]; then
+    TAG_STR=$(IFS=,; echo "${TAGS[*]}")
+    CMD+=(--tags "$TAG_STR")
 fi
 if [ -n "$FOLDER" ]; then
     CMD+=(--folder "$FOLDER")
@@ -88,3 +117,4 @@ if [ $EXIT_CODE -ne 0 ]; then
 fi
 
 echo "Todo created: $TITLE"
+
