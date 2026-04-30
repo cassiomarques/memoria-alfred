@@ -32,9 +32,8 @@ if [ $EXIT_CODE -ne 0 ]; then
     exit 1
 fi
 
-# Activate iTerm and switch to the tmux "notes" window
-osascript -e 'tell application "iTerm" to activate'
-sleep 0.1
-tmux select-window -t notes 2>/dev/null
+# Activate iTerm and switch to the tmux "memoria" window
+DIR="$(cd "$(dirname "$0")" && pwd)"
+bash "$DIR/activate-memoria.sh"
 
 echo "Opened: $NOTE_PATH"

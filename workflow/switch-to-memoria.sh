@@ -1,6 +1,5 @@
 #!/bin/bash
-# Activates iTerm and switches to the tmux "notes" window.
+# Activates iTerm and switches to the tmux window running Memoria.
 
-osascript -e 'tell application "iTerm" to activate'
-sleep 0.1
-tmux select-window -t notes 2>/dev/null
+DIR="$(cd "$(dirname "$0")" && pwd)"
+bash "$DIR/activate-memoria.sh"
