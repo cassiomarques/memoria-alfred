@@ -4,6 +4,7 @@ An [Alfred](https://www.alfredapp.com/) workflow for quick note and todo capture
 
 ## Features
 
+- **Search Notes** — live search across all notes, Enter opens in Memoria TUI
 - **Quick Note from Clipboard** — hotkey to instantly save clipboard contents as a new note
 - **Quick Todo** — keyword trigger to create a todo with optional due date
 
@@ -19,6 +20,17 @@ An [Alfred](https://www.alfredapp.com/) workflow for quick note and todo capture
 2. Double-click to import into Alfred
 
 ## Usage
+
+### Search Notes
+
+**Keyword:** `ms` followed by your search query
+
+```
+ms hydro retries
+ms schema evolution
+```
+
+Results appear as you type. Press Enter to navigate to the note in Memoria and switch to your iTerm/tmux window.
 
 ### Create Note from Clipboard
 

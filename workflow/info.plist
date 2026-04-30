@@ -34,6 +34,19 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>7D4F9A1B-SEARCH-FILTER</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E5A0B2C-OPEN-NOTE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>3E9B8C4F-NOTE-RUN</key>
 		<array>
 			<dict>
@@ -48,6 +61,19 @@
 			</dict>
 		</array>
 		<key>5B2D7E6F-TODO-RUN</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6C3E8F7A-NOTIFY</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>8E5A0B2C-OPEN-NOTE</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -77,7 +103,7 @@
 	<key>createdby</key>
 	<string>Cassio Marques</string>
 	<key>description</key>
-	<string>Quick note and todo capture for Memoria</string>
+	<string>Quick note capture, todos, and search for Memoria</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -113,7 +139,7 @@
 				<key>keyword</key>
 				<string>mt</string>
 				<key>subtext</key>
-				<string>Create a todo (supports --due, --tags, --folder)</string>
+				<string>Create a todo (@due(), #tag, --due, --tags)</string>
 				<key>text</key>
 				<string>Memoria: New Todo</string>
 				<key>withspace</key>
@@ -125,6 +151,51 @@
 			<string>4A1C6D5E-TODO-KEYWORD</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>ms</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyalinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./search-notes.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search notes and open in Memoria</string>
+				<key>title</key>
+				<string>Memoria: Search Notes</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7D4F9A1B-SEARCH-FILTER</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -169,6 +240,29 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>5B2D7E6F-TODO-RUN</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./open-note.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8E5A0B2C-OPEN-NOTE</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -224,7 +318,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Quick note and todo capture for Memoria. Requires Memoria TUI to be running.</string>
+	<string>Quick note capture, todos, and search for Memoria. Requires Memoria TUI to be running.</string>
 	<key>uidata</key>
 	<dict>
 		<key>1A7B5C3D-HOTKEY</key>
@@ -262,16 +356,30 @@
 			<key>ypos</key>
 			<integer>200</integer>
 		</dict>
+		<key>7D4F9A1B-SEARCH-FILTER</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>350</integer>
+		</dict>
+		<key>8E5A0B2C-OPEN-NOTE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>350</integer>
+		</dict>
 		<key>6C3E8F7A-NOTIFY</key>
 		<dict>
 			<key>xpos</key>
 			<integer>650</integer>
 			<key>ypos</key>
-			<integer>125</integer>
+			<integer>200</integer>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/cassiomarques/memoria-alfred</string>
 </dict>
