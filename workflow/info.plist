@@ -8,37 +8,24 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>1A7B5C3D-HOTKEY</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D8A7F3E-NOTE-KEYWORD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>2D8A7F3E-NOTE-KEYWORD</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>3E9B8C4F-NOTE-RUN</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitowards</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>4A1C6D5E-TODO-KEYWORD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>5B2D7E6F-TODO-RUN</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitowards</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>7D4F9A1B-SEARCH-FILTER</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>8E5A0B2C-OPEN-NOTE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -60,11 +47,37 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>4A1C6D5E-TODO-KEYWORD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5B2D7E6F-TODO-RUN</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>5B2D7E6F-TODO-RUN</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>6C3E8F7A-NOTIFY</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>7D4F9A1B-SEARCH-FILTER</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E5A0B2C-OPEN-NOTE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -86,11 +99,11 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>1A7B5C3D-HOTKEY</key>
+		<key>A1B2C3D4-SWITCH-HOTKEY</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>2D8A7F3E-NOTE-KEYWORD</string>
+				<string>B2C3D4E5-SWITCH-RUN</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -316,6 +329,58 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>46</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>M</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>A1B2C3D4-SWITCH-HOTKEY</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash switch-to-memoria.sh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B2C3D4E5-SWITCH-RUN</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Quick note capture, todos, and search for Memoria. Requires Memoria TUI to be running.</string>
@@ -356,6 +421,13 @@
 			<key>ypos</key>
 			<integer>200</integer>
 		</dict>
+		<key>6C3E8F7A-NOTIFY</key>
+		<dict>
+			<key>xpos</key>
+			<integer>650</integer>
+			<key>ypos</key>
+			<integer>200</integer>
+		</dict>
 		<key>7D4F9A1B-SEARCH-FILTER</key>
 		<dict>
 			<key>xpos</key>
@@ -370,12 +442,19 @@
 			<key>ypos</key>
 			<integer>350</integer>
 		</dict>
-		<key>6C3E8F7A-NOTIFY</key>
+		<key>A1B2C3D4-SWITCH-HOTKEY</key>
 		<dict>
 			<key>xpos</key>
-			<integer>650</integer>
+			<integer>50</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>500</integer>
+		</dict>
+		<key>B2C3D4E5-SWITCH-RUN</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>500</integer>
 		</dict>
 	</dict>
 	<key>version</key>
