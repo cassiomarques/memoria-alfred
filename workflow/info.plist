@@ -112,6 +112,19 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>C4D5E6F7-RECENT-FILTER</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E5A0B2C-OPEN-NOTE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Cassio Marques</string>
@@ -381,6 +394,51 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttreatemptyaliasaliasaliasaliasalias</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>mr</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatealiasaliasalias</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading recent notes...</string>
+				<key>script</key>
+				<string>bash recent-notes.sh 15</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>List recently modified notes</string>
+				<key>title</key>
+				<string>Memoria: Recent Notes</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>C4D5E6F7-RECENT-FILTER</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Quick note capture, todos, and search for Memoria. Requires Memoria TUI to be running.</string>
@@ -455,6 +513,13 @@
 			<integer>300</integer>
 			<key>ypos</key>
 			<integer>500</integer>
+		</dict>
+		<key>C4D5E6F7-RECENT-FILTER</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>600</integer>
 		</dict>
 	</dict>
 	<key>version</key>
