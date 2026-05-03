@@ -5,8 +5,11 @@ An [Alfred](https://www.alfredapp.com/) workflow for quick note and todo capture
 ## Features
 
 - **Search Notes** — live search across all notes, Enter opens in Memoria TUI
+- **Recent Notes** — list recently modified notes, Enter opens in Memoria TUI
+- **Daily Log** — append items to today's section in your daily file
 - **Quick Note from Clipboard** — hotkey to instantly save clipboard contents as a new note
 - **Quick Todo** — keyword trigger to create a todo with optional due date
+- **Switch to Memoria** — hotkey to activate the correct iTerm/tmux window
 
 ## Requirements
 
@@ -31,6 +34,27 @@ ms schema evolution
 ```
 
 Results appear as you type. Press Enter to navigate to the note in Memoria and switch to your iTerm/tmux window.
+
+### Recent Notes
+
+**Keyword:** `mr`
+
+Shows the 15 most recently modified notes with relative timestamps. Press Enter to open in Memoria.
+
+### Daily Log
+
+**Keyword:** `md` followed by your log entry
+
+```
+md Create a PR to fix all the problems
+md Reviewed PRs for team
+```
+
+Appends a bullet item to today's section (`## YYYY-MM-DD`) in your daily file. Creates the section if it doesn't exist yet. Configure the daily file path in `~/.memoria/config.yaml`:
+
+```yaml
+daily_file: daily.md
+```
 
 ### Create Note from Clipboard
 
