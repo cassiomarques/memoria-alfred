@@ -2,7 +2,7 @@
 # View a cheatsheet as a QuickLook overlay.
 # Gets the note content, converts to styled HTML with pandoc, opens with QuickLook.
 
-MEMORIA=$(which memoria 2>/dev/null || echo "$HOME/go/bin/memoria")
+MEMORIA=$(which memoria 2>/dev/null || echo "/opt/homebrew/bin/memoria")
 PANDOC=$(which pandoc 2>/dev/null || echo "/opt/homebrew/bin/pandoc")
 NOTE_PATH="$1"
 
@@ -43,14 +43,16 @@ echo "$BODY" | "$PANDOC" --standalone -t html5 \
     --metadata title="" \
     --css "$CSS_FILE" \
     --embed-resources \
-    -o "$TMPFILE" 2>/dev/null
+    -o "$TMPFILE" 2>/tmp/memoria-cheatsheet-debug.log
 
 if [ $? -ne 0 ]; then
     # Fallback: simple HTML wrapping
     echo "<html><head><style>$(cat "$CSS_FILE" 2>/dev/null)</style></head><body><pre>$BODY</pre></body></html>" > "$TMPFILE"
 fi
 
-# Open with QuickLook and bring to front
-qlmanage -p "$TMPFILE" &>/dev/null &
-sleep 0.5
-osascript -e 'tell application "System Events" to set frontmost of process "qlmanage" to true' 2>/dev/null
+# Open with QuickLook in foreground (keeps alive until user dismisses)
+osascript -e '
+    do shell script "qlmanage -p /tmp/memoria-cheatsheet.html &>/dev/null &"
+    delay 0.5
+    tell application "System Events" to set frontmost of process "qlmanage" to true
+' &>/dev/null &
