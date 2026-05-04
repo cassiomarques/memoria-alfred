@@ -99,6 +99,29 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>92764375-76A1-4C60-9BBC-9F455FFF47B6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1431429E-4A12-4863-B4F8-A387F0541536</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0F1B7E21-350D-4332-98A3-AA79E73EA37E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Edit in Memoria TUI</string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>A1B2C3D4-SWITCH-HOTKEY</key>
 		<array>
 			<dict>
@@ -530,11 +553,118 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>mcs</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyalinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading cheatsheets...</string>
+				<key>script</key>
+				<string>bash list-cheatsheets.sh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>View or edit cheatsheets</string>
+				<key>title</key>
+				<string>Memoria: Cheatsheets</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>92764375-76A1-4C60-9BBC-9F455FFF47B6</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash view-cheatsheet.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1431429E-4A12-4863-B4F8-A387F0541536</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash edit-cheatsheet.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0F1B7E21-350D-4332-98A3-AA79E73EA37E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Quick note capture, todos, and search for Memoria. Requires Memoria TUI to be running.</string>
 	<key>uidata</key>
 	<dict>
+		<key>0F1B7E21-350D-4332-98A3-AA79E73EA37E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>760</integer>
+		</dict>
+		<key>1431429E-4A12-4863-B4F8-A387F0541536</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>680</integer>
+		</dict>
 		<key>1A7B5C3D-HOTKEY</key>
 		<dict>
 			<key>xpos</key>
@@ -590,6 +720,13 @@
 			<integer>450</integer>
 			<key>ypos</key>
 			<integer>350</integer>
+		</dict>
+		<key>92764375-76A1-4C60-9BBC-9F455FFF47B6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>150</integer>
+			<key>ypos</key>
+			<integer>700</integer>
 		</dict>
 		<key>A1B2C3D4-SWITCH-HOTKEY</key>
 		<dict>
