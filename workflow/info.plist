@@ -47,6 +47,19 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>47A24374-1192-4CE3-A95F-D4CB66E6B732</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6E8602EB-2EEE-4FDE-A37D-36D8C99857B6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>4A1C6D5E-TODO-KEYWORD</key>
 		<array>
 			<dict>
@@ -646,6 +659,50 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>mca</string>
+				<key>subtext</key>
+				<string>Format: name::section::command::description</string>
+				<key>text</key>
+				<string>Add to Cheatsheet</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>47A24374-1192-4CE3-A95F-D4CB66E6B732</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>bash append-cheatsheet.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6E8602EB-2EEE-4FDE-A37D-36D8C99857B6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Quick note capture, todos, and search for Memoria. Requires Memoria TUI to be running.</string>
@@ -686,6 +743,13 @@
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>47A24374-1192-4CE3-A95F-D4CB66E6B732</key>
+		<dict>
+			<key>xpos</key>
+			<integer>150</integer>
+			<key>ypos</key>
+			<integer>850</integer>
+		</dict>
 		<key>4A1C6D5E-TODO-KEYWORD</key>
 		<dict>
 			<key>xpos</key>
@@ -706,6 +770,13 @@
 			<integer>650</integer>
 			<key>ypos</key>
 			<integer>200</integer>
+		</dict>
+		<key>6E8602EB-2EEE-4FDE-A37D-36D8C99857B6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>850</integer>
 		</dict>
 		<key>7D4F9A1B-SEARCH-FILTER</key>
 		<dict>
