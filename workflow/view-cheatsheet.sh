@@ -17,17 +17,21 @@ if [ $? -ne 0 ] || [ -z "$CONTENT" ]; then
     exit 1
 fi
 
-# Strip YAML frontmatter (everything between first --- and next ---)
-BODY=$(echo "$CONTENT" | awk '
-    BEGIN { in_fm=0; past_fm=0 }
-    /^---$/ {
-        if (!past_fm) {
-            if (in_fm) { past_fm=1; next }
-            else { in_fm=1; next }
+# Strip YAML frontmatter if present (everything between first --- and next ---)
+if echo "$CONTENT" | head -1 | grep -q '^---$'; then
+    BODY=$(echo "$CONTENT" | awk '
+        BEGIN { in_fm=0; past_fm=0 }
+        /^---$/ {
+            if (!past_fm) {
+                if (in_fm) { past_fm=1; next }
+                else { in_fm=1; next }
+            }
         }
-    }
-    past_fm { print }
-')
+        past_fm { print }
+    ')
+else
+    BODY="$CONTENT"
+fi
 
 # Get the CSS file path (bundled in workflow)
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
