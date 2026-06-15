@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.cassiomarques.memoria-alfred</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>1A7B5C3D-HOTKEY</key>
@@ -384,12 +382,6 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
-				<key>hotkey</key>
-				<integer>45</integer>
-				<key>hotmod</key>
-				<integer>1572864</integer>
-				<key>hotstring</key>
-				<string>N</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -413,12 +405,6 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
-				<key>hotkey</key>
-				<integer>46</integer>
-				<key>hotmod</key>
-				<integer>1310720</integer>
-				<key>hotstring</key>
-				<string>M</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
